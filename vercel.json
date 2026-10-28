@@ -1,14 +1,15 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "services": {
-    "aicte_approval": {
-      "root": "SIH_1-main/AICTE_Approval",
-      "framework": "flask"
-    },
-    "sih-aicte": {
-      "root": "SIH_1-main/sih-aicte",
-      "framework": "vite"
+  "version": 2,
+  "builds": [
+    {
+      "src": "SIH_1-main/AICTE_Approval/app.py",
+      "use": "@vercel/python"
     }
-  },
-  "rewrites": []
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "SIH_1-main/AICTE_Approval/app.py"
+    }
+  ]
 }
